@@ -1,0 +1,16 @@
+# POST http://127.0.0.1:8000/signup/
+# Content-Type: application/json
+
+# {
+#   "username": "muru",
+#   "email":"muru@gmail.com",
+#   "password": "M123456"
+# }
+
+POST http://127.0.0.1:8000/signin/
+Content-Type: application/json
+
+{
+  "username": "muru",
+  "password": "M123456"
+}

@@ -1,0 +1,68 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Channels Test</title>
+</head>
+<body>
+
+<button onclick="sendMsg()">Send</button>
+
+<script>
+const socket = new WebSocket("ws://127.0.0.1:8000/ws/echo/");
+
+socket.onmessage = function(e) {
+    alert("Server replied: " + e.data);
+};
+
+function sendMsg() {
+    socket.send("Hello Channels");
+}
+</script>
+
+</body>
+
+</html> -->
+<!-- ------------------------------------------------- -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat</title>
+</head>
+<body>
+
+<h2>Live Chat</h2>
+
+<div id="messages" style="border:1px solid black; height:200px;"></div>
+
+<input id="msg" placeholder="Type message">
+<button onclick="sendMsg()">Send</button>
+
+<script>
+const socket = new WebSocket(
+    "ws://127.0.0.1:8000/ws/chat/"
+);
+
+socket.onmessage = function(e) {
+    document.getElementById("messages").innerHTML +=
+        "<p>" + e.data + "</p>";
+};
+
+function sendMsg() {
+    const input = document.getElementById("msg");
+    socket.send(input.value);
+    input.value = "";
+}
+</script>
+
+</body>
+</html>
+
+<!-- from Profile.models import EmployerProfile
+
+user = User.objects.get(username="tcs_hr")
+
+EmployerProfile.objects.create(
+    user=user,
+    company_name="TCS"
+) -->
